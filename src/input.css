@@ -1,0 +1,455 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container{
+    @apply max-w-[95rem] p-6 w-full mx-auto
+}
+
+@layer components{
+  /* loader */
+    /* HEADER */
+    #element{
+      width: 600px; height: 360px; margin-bottom: 10px;
+    }
+    .header__wrapper {
+        @apply py-4 flex items-center bg-center justify-between lg:py-1;
+      }
+    
+      nav {
+        @apply absolute w-full h-full bg-light top-[75px] left-[-100%] z-10 border-t-[1px] border-gray-200 transition-all duration-[0.5s] lg:static lg:border-none;
+      }
+      .open {
+        @apply w-full left-0;
+      }
+    
+      .nav-links {
+        @apply flex uppercase flex-col text-center lg:flex-row lg:justify-end lg:text-[14px];
+      }
+    
+      .nav-links ul li {
+        @apply border-b-[1px] border-gray-300;
+      }
+    
+      .nav-links li {
+        @apply lg:relative;
+      }
+    
+      .nav-links li::after {
+        @apply lg:bottom-0
+        lg:content-['']
+        lg:block
+        lg:h-[5px]
+        lg:left-[50%]
+        lg:absolute
+        lg:bg-[#6a103f]
+        lg:[transition:width_0.3s_ease_0s,_left_0.3s_ease_0s]
+        lg:w-0;
+      }
+    
+      .nav-links li:hover::after {
+        @apply w-full left-0;
+      }
+    
+      .nav-links li a {
+        @apply relative inline-block h-[60px] leading-[60px] w-full text-primary hover:bg-primary hover:text-light transition-all duration-300 lg:hover:bg-transparent lg:hover:text-primary lg:px-5;
+      }
+    
+      /* SUB MENU */
+      .dropdown-parent {
+        @apply lg:relative;
+      }
+    
+      .nav-links-dropdown {
+        @apply hidden relative p-5 left-0 p-0 border-t-[1px] bg-[#480f2d] lg:bg-light lg:absolute lg:leading-[30px];
+      }
+    
+      .nav-links-dropdown li {
+        @apply border-none hover:bg-[#6a103f] lg:hover:bg-transparent lg:w-[300px];
+      }
+    
+      .nav-links-dropdown li::after {
+        @apply lg:h-[2px] lg:bottom-2;
+      }
+    
+      .nav-links-dropdown li a {
+        @apply h-auto leading-[1.6] text-light !p-0 lg:text-left lg:text-primary;
+      }
+    
+      .nav-links-dropdown.active {
+        @apply block;
+      }
+      a.active {
+        @apply bg-primary text-light;
+      }
+    
+      .burger__menu span {
+        @apply block absolute h-[8px] w-full bg-primary rounded-lg opacity-100 left-0;
+      }
+    
+      .burger__menu span:nth-child(1) {
+        @apply opacity-100 top-0 transition-all duration-300;
+      }
+    
+      .burger__menu span:nth-child(2) {
+        @apply top-[15px] transition-all duration-300;
+      }
+    
+      .burger__menu span:nth-child(3) {
+        @apply top-[15px] transition-all duration-300;
+      }
+    
+      .burger__menu span:nth-child(4) {
+        @apply opacity-100 top-[30px] transition-all duration-300;
+      }
+    
+      .burger__menu.open span:nth-child(1) {
+        @apply top-[15px] w-0 left-[50%] opacity-0 transition-all duration-300;
+      }
+    
+      .burger__menu.open span:nth-child(2) {
+        @apply rotate-[45deg] transition-all duration-300;
+      }
+    
+      .burger__menu.open span:nth-child(3) {
+        @apply rotate-[-45deg] transition-all duration-300;
+      }
+    
+      .burger__menu.open span:nth-child(4) {
+        @apply top-[15px] w-0 left-[50%] opacity-0 transition-all duration-300;
+      }
+    
+      .services__card {
+        @apply my-20 lg:my-0 lg:mb-20;
+      }
+    
+      .services__card ul {
+        @apply list-inside;
+      }
+    
+      .services__card img {
+        @apply w-[50px] h-[50px] object-contain;
+      }
+    /* BANNER */
+    .banner{
+        @apply py-8
+    }
+    .banner .bg{
+        @apply
+        bg-Bgwave 
+        bg-no-repeat
+        bg-right
+    }
+    /* ABOUT */
+    .about .about__wrapper{
+        @apply mb-[1.5rem]
+    }
+    /* LIST what we offer */
+    .service{
+        @apply
+        py-[10vh]
+        px-[0]
+        bg-Bgservices
+        bg-cover
+        bg-center
+        bg-no-repeat
+    }
+    .service .service__wrapper .service__title img{
+        @apply block
+        w-[60%]
+        m-auto
+    }
+    .service .service__wrapper .service__list .service__title h3{
+      @apply text-[1.5rem]
+    }
+    .service .service__wrapper .service__list .service__title ul{
+        @apply
+        text-lg
+    }
+    /* EVENTS */
+    .events .events__wrapper .event__card{
+        @apply
+        pl-1
+        pr-1
+        pb-10
+        border 
+        border-light
+        shadow-2xl 
+        gap-10
+        object-fill
+        text-center
+    }
+    .events .events__wrapper .event__card{
+        @apply
+        overflow-clip
+    }
+    .events .events__wrapper .event__card img{
+        @apply
+        object-fill
+        hover:scale-110
+        transition-all
+    }
+    .events .events__wrapper .event__card img{
+        @apply
+        w-[100%]
+        h-auto
+        bg-cover
+        bg-no-repeat
+        bg-center
+    }
+    .events .events__wrapper .event__card h4{
+        @apply
+        mb-[1rem]
+    }
+    .events .events__wrapper .event__card p{
+        @apply
+        mb-[5rem]
+    }
+    .events .events__wrapper .event__card .eventcard__img{
+        @apply
+        object-cover
+    }
+    .events .events__wrapper .event__card .eventcard__img img{
+        @apply
+        mb-10
+    }
+    .events .events__wrapper .event__card h4{
+        @apply
+        font-bold
+        text-2xl
+    }
+
+    /* SLIDER */
+    .slider__content {
+      @apply lg:grid lg:grid-cols-2 gap-5;
+    }
+    .slider__content img {
+      @apply mb-2 mx-auto w-[320px] h-[320px] object-cover rounded-[50%];
+    }
+    .slider__info {
+      @apply z-[10] relative;
+    }
+    .slider__image h4 {
+      @apply lg:mb-0;
+    }
+    .slider-grid {
+      @apply lg:grid lg:grid-cols-2;
+    }
+    .slider__info {
+      @apply lg:flex lg:flex-col lg:justify-center;
+    }
+    .slider__info h2 {
+      @apply lg:pb-0 lg:pt-0;
+    }
+
+    .testimonial__wrapper .tns-outer {
+      @apply relative;
+    }
+  
+    .testimonial__wrapper .tns-nav {
+      @apply z-[999] absolute bottom-[1rem]
+    left-[50%]
+    -translate-x-1/2
+    -translate-y-1/2;
+    }
+  
+    .testimonial__wrapper .tns-nav button {
+      @apply mx-[0.2rem]
+    w-[15px]
+    h-[15px]
+    rounded-full
+    border-none
+    bg-primary;
+    }
+  
+    .testimonial__wrapper button.tns-nav-active {
+      @apply bg-[#be2a76];
+    }
+    
+    
+
+    /* ABOUT US */
+    /* MISSION VISSION */
+    .vission span{
+        @apply
+        font-bold
+    }
+    .vission .vission__wrapper .vission__card{
+        @apply
+        grid
+        place-items-center
+        md:place-items-start
+    }
+    .vission .vission__wrapper .vission__card h4{
+        @apply
+        font-bold
+        text-2xl
+        mb-5
+    }
+    .vission .vission__wrapper .vission__card  .vission__img{
+        @apply
+        w-[100%]
+        h-[100%]
+        bg-cover
+        bg-no-repeat
+        bg-center
+        object-cover
+    }
+    /* CTA */
+    .cta{
+        @apply bg-[radial-gradient(circle_farthest-side_at_center_bottom,#e81a86,#6a103f_125%)];
+    }
+    /* TEAM GFALLERY */
+    .people {
+      @apply relative 
+      left-[50%] 
+      translate-x-[-50%]
+      min-h-[420px]
+      max-w-[1070px];
+    }
+    
+    .team img {
+      @apply block grayscale transition-all duration-500;
+    }
+    
+    .people-info {
+      @apply text-center
+    
+      opacity-0
+      transition-all
+      duration-300
+      translate-y-[20px];
+    }
+    
+    .team:nth-child(1) .people-info {
+      @apply mr-[65px];
+    }
+    
+    .team:hover img {
+      @apply grayscale-0;
+    }
+    
+    .team:hover .people-info {
+      @apply opacity-100 translate-y-[0px];
+    }
+    
+    .team:first-child {
+      @apply absolute bottom-0 left-[56px] z-[2];
+    }
+    .team:nth-child(2) {
+      @apply absolute bottom-0 left-[126px] z-[1];
+    }
+    .team:nth-child(3) {
+      @apply absolute bottom-0 left-[322px] z-[2];
+    }
+    .team:nth-child(4) {
+      @apply absolute bottom-0 left-[418px] z-[3];
+    }
+    .team:nth-child(5) {
+      @apply absolute bottom-0 left-[565px] z-[2];
+    }
+    .team:nth-child(6) {
+      @apply absolute bottom-0 left-[700px] z-[1];
+    }
+    .team:nth-child(7) {
+      @apply absolute bottom-0 left-[714px] z-[1];
+    }
+    .team:last-child {
+      @apply absolute bottom-0 left-[825px] z-[1];
+    }
+
+    /* partners */
+    .partners .partners__wrapper .partner__col ul{
+      
+    }
+    .partners .partner__col ul li img{
+        @apply max-w-[270px] max-h-[100px] 
+
+    }
+
+   
+}
+@layer utilities{
+    .btn{
+        @apply 
+        inline-block
+        py-[1rem]
+        px-[1.5rem]
+        rounded-full
+        border-transparent
+        border-[1px]
+        rounded-full
+        text-lg
+        font-bold
+        font-medium hover:scale-[0.9]
+        transition-all
+    }
+    .btn.bg--light{
+        @apply bg-light 
+        text-accent
+        border-accent 
+        border-[1px]
+        hover:border-opacity-0
+        hover:bg-zinc-200
+        transition-all;
+    }
+    .btn.bg--dark{
+        @apply bg-accent 
+        text-light
+        border-[1px]
+        hover:text-accent
+        border-accent
+        hover:bg-light
+        transition-all
+    }
+    .btn.bg--light-cta{
+        @apply bg-transparent
+        text-light
+        border-light
+        border-[1px]
+        hover:text-accent
+        hover:border-opacity-0
+        hover:bg-light
+        transition-all;
+    }
+}
+@layer utilities{
+  /* loader */
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333333;
+    transition: opacity 0.90s, visibility 0.90s;
+  }
+  
+  .loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .loader::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid #dddddd;
+    border-top-color: #6a103f;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+  }
+  
+  @keyframes loading {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  
+}
